@@ -10,7 +10,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="Player" type="RigidBody3D"]
 lock_rotation = true
-linear_damp = 2.0
+linear_damp = 1.0
 script = ExtResource("1_bajlx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -40,6 +40,7 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_w3wtc")
+stretch_mode = 4
 
 [node name="InteractPrompt" type="Label" parent="TwistPivot/PitchPivot/Camera3D/TextureRect"]
 visible = false

@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
-	input.y = Input.get_action_strength("ui_accept")
+	input.y = 10.0 if Input.is_action_just_pressed("ui_accept") else 0.0
 	input.z = Input.get_axis("move_forward", "move_back")
 	apply_central_force(twist_pivot.basis * input * 1400.0 * delta)
 	
@@ -28,7 +28,7 @@ func _process(delta):
 	
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, 
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x,
 		deg_to_rad(-80), 
 		deg_to_rad(80)
 	)
